@@ -5,6 +5,31 @@
   --foreground: #171717;
 }
 
+/* Highlight ring for section when navigated from navbar */
+.section-highlight {
+  position: relative;
+}
+.section-highlight::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  padding: 2px; /* For internal gap effect */
+  background: linear-gradient(90deg, rgba(16,185,129,0.0), rgba(16,185,129,0.6), rgba(16,185,129,0.0));
+  -webkit-mask: 
+    linear-gradient(#000 0 0) content-box, 
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  animation: glow-move 1.6s ease-out forwards;
+  pointer-events: none;
+}
+@keyframes glow-move {
+  0% { opacity: 0; transform: translateY(2px); }
+  10% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(0); }
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -14,13 +39,105 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0a0614; /* deep space purple */
+    --foreground: #e8e8ff;
   }
 }
 
 body {
-  background: var(--background);
+  background: radial-gradient(1200px 700px at 50% -10%, rgba(217, 70, 239, 0.15), transparent 60%),
+    radial-gradient(800px 500px at 10% 110%, rgba(59, 130, 246, 0.12), transparent 60%),
+    #090417;
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+/* Neon helpers */
+.drop-shadow-neon {
+  text-shadow: 0 0 10px #f0abfc, 0 0 20px #e879f9, 0 0 40px #d946ef;
+}
+
+/* Warm glow for headings (yellow/orange) */
+.glow-warm {
+  text-shadow: 0 0 10px rgba(251, 191, 36, 0.7), 0 0 22px rgba(245, 158, 11, 0.7), 0 0 38px rgba(234, 88, 12, 0.55);
+}
+
+/* Simple triangle for sponsor mark */
+.clip-triangle {
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+/* Animated purple gradient border (used on prizes and rules) */
+.anim-border { position: relative; border-radius: 12px; }
+.anim-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px; /* border thickness */
+  border-radius: inherit;
+  background: linear-gradient(90deg, #a855f7, #ec4899, #a855f7);
+  background-size: 200% 200%;
+  animation: border-move 4s linear infinite;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+          mask-composite: exclude;
+  pointer-events: none;
+}
+@keyframes border-move {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* Background overlay for sections (match hero style). Apply on section element. */
+.section-wrap {
+  position: relative;
+  isolation: isolate; /* ensure pseudo element stays behind children */
+}
+.section-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(circle at 50% -20%, rgba(217, 70, 239, 0.25), transparent 50%),
+    radial-gradient(circle at 20% 120%, rgba(59, 130, 246, 0.2), transparent 40%);
+}
+
+/* Global continuous page background overlay (fixed). Use on a wrapper around main content. */
+.page-bg { position: relative; }
+.page-bg::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(1400px 800px at 50% -10%, rgba(217,70,239,0.18), transparent 60%),
+    radial-gradient(1200px 700px at 10% 120%, rgba(59,130,246,0.15), transparent 55%),
+    radial-gradient(900px 600px at 90% 30%, rgba(147,51,234,0.08), transparent 60%);
+  pointer-events: none;
+}
+
+/* 3D flip card utilities for Rules cards */
+.flip {
+  perspective: 1000px;
+}
+.flip-inner {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+}
+.flip:hover .flip-inner { /* default flips to back (right rotation) */
+  transform: rotateY(180deg);
+}
+.flip-left:hover .flip-inner { /* alternate card flips opposite */
+  transform: rotateY(-180deg);
+}
+.flip-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.flip-back {
+  transform: rotateY(180deg);
 }
