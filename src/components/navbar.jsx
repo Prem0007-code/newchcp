@@ -34,7 +34,7 @@ export default function Navbar() {
     <header id="site-navbar" className="fixed top-0 left-0 right-0 z-50 backdrop-blur bg-[#070314]/60 border-b border-white/10">
       <div className="mx-auto max-w-6xl px-4 py-4 md:py-5 flex items-center justify-between">
         <Link href="#" className="font-semibold tracking-wider text-sm text-white/90 flex items-center">
-          <img src="/logo-nav.webp" alt="codehurdle" className="h-7 w-auto mr-2" />
+          <img src="/k3.png" alt="codehurdle" className="h-7 w-auto mr-2" />
           <span className="sr-only">codehurdle</span>
         </Link>
 

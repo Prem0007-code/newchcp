@@ -8,14 +8,26 @@ export default function Quickaccess() {
 
             {/* remove outer border; adjust inner card sizes */}
             <div className="mt-2 flex flex-col sm:flex-row items-stretch justify-center gap-6">
-              <div className="rounded-xl bg-transparent border border-cyan-400/20 px-5 py-6 w-64 sm:w-72 min-h-[170px] mx-auto">
+              <a
+                href="/docs/K3CP.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open Rulebook (PDF)"
+                className="rounded-xl bg-transparent border border-cyan-400/20 px-5 py-6 w-64 sm:w-72 min-h-[170px] mx-auto hover:bg-white/5 transition-colors cursor-pointer block no-underline"
+              >
                 <h3 className="text-white font-extrabold">Rulebook</h3>
                 <p className="text-white/70 text-sm mt-1">View the official contest rulebook.</p>
-              </div>
-              <div className="rounded-xl bg-transparent border border-cyan-400/20 px-5 py-6 w-64 sm:w-72 min-h-[170px] mx-auto">
+              </a>
+              <a
+                href="/pay.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open Payment QR Code"
+                className="rounded-xl bg-transparent border border-cyan-400/20 px-5 py-6 w-64 sm:w-72 min-h-[170px] mx-auto hover:bg-white/5 transition-colors cursor-pointer block no-underline"
+              >
                 <h3 className="text-white font-extrabold">Payment QR</h3>
                 <p className="text-white/70 text-sm mt-1">Scan to complete the registration fee payment.</p>
-              </div>
+              </a>
             </div>
           </div>
         </div>
