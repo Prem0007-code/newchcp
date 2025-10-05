@@ -1,12 +1,12 @@
 {
-  "$schema": "https://json.schemastore.org/package.json",
-  "name": "chcp-backend",
+  "name": "cp-backend",
   "version": "1.0.0",
   "description": "Express + Mongoose backend for form submissions",
-  "main": "src/index.js",
+  "main": "index.js",
   "scripts": {
     "start": "node src/index.js",
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon src/index.js",
+    "build": "echo \"No build step needed\""
   },
   "keywords": [],
   "author": "",

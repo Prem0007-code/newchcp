@@ -11,20 +11,15 @@
       "static/chunks/main-app.js",
       "static/chunks/app/page.js"
     ],
-    "/after-registration/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/after-registration/page.js"
-    ],
-    "/admin-submissions/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/admin-submissions/page.js"
-    ],
     "/admin-after-registrations/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/admin-after-registrations/page.js"
+    ],
+    "/_not-found/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/_not-found/page.js"
     ]
   }
 }

@@ -61,7 +61,7 @@ export default function AfterRegistrationPage() {
         throw new Error('Please fill in all required fields');
       }
 
-      const response = await fetch('http://localhost:5000/api/after-registrations', {
+      const response = await fetch('https://cp-backend-fj39.onrender.com/api/after-registrations', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
